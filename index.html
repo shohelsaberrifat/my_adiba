@@ -1,0 +1,1702 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adiba's Universe 💜</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+
+:root {
+    --pink: #ffb8df;
+    --purple: #d4b5ff;
+    --white: #fff5ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+
+    /* Soft, dreamy pink-and-lavender galaxy background */
+    background:
+        radial-gradient(ellipse at 12% 18%, rgba(255, 190, 225, 0.30) 0%, transparent 38%),
+        radial-gradient(ellipse at 88% 22%, rgba(190, 160, 255, 0.30) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 90%, rgba(255, 170, 215, 0.22) 0%, transparent 42%),
+        linear-gradient(135deg, rgba(35, 15, 58, 0.58), rgba(66, 35, 91, 0.48)),
+        url("galaxy-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    z-index: 15;
+    pointer-events: none;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.topbar {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    padding: 14px 10px;
+
+    background: rgba(22, 10, 39, 0.90);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #ffffff25;
+}
+
+.topbar button {
+    background: transparent;
+    color: #ffe5fa;
+
+    border: 1px solid #ffffff30;
+    border-radius: 30px;
+
+    padding: 9px 13px;
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.topbar button:hover {
+    background: #ffffff25;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.screen {
+    display: none;
+    position: relative;
+    z-index: 1;
+
+    min-height: 100vh;
+    padding: 55px 20px 80px;
+
+    text-align: center;
+    animation: appear 0.7s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1, h2, .script {
+    font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+    font-size: clamp(48px, 9vw, 85px);
+    color: var(--pink);
+    text-shadow: 0 0 25px #ff9de0;
+}
+
+h2 {
+    font-size: clamp(36px, 6vw, 55px);
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #ffe3fa;
+}
+
+p {
+    color: #f3e5fa;
+    line-height: 1.8;
+}
+
+.subtitle {
+    max-width: 620px;
+    margin: 18px auto 25px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-btn {
+    border: none;
+    border-radius: 40px;
+
+    padding: 14px 28px;
+
+    color: #311b43;
+    font-size: 14px;
+    font-weight: 600;
+
+    background: linear-gradient(
+        120deg,
+        #ffb8df,
+        #d7b6ff
+    );
+
+    box-shadow: 0 5px 25px #eaa8ff50;
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 35px #eaa8ff90;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.card {
+    width: min(100%, 650px);
+    margin: 25px auto;
+    padding: 28px;
+
+    border-radius: 25px;
+    border: 1px solid #ffffff35;
+
+    background: rgba(40, 20, 65, 0.72);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 40px #00000035;
+}
+
+/* =========================
+   PLANET
+========================= */
+
+.planet {
+    width: 175px;
+    height: 175px;
+
+    margin: 35px auto;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 80px;
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        #ffe6f8,
+        #d18be8 45%,
+        #7955b7
+    );
+
+    box-shadow:
+        0 0 40px #e7a8ff,
+        0 0 100px #a66ae880;
+
+    animation: orbit 5s ease-in-out infinite;
+}
+
+@keyframes orbit {
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* =========================
+   UNIVERSE GRID
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+    gap: 16px;
+
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+.tile {
+    min-height: 145px;
+    padding: 20px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid #ffffff30;
+    border-radius: 22px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tile:hover {
+    transform: translateY(-7px);
+    background: rgba(255,190,235,0.22);
+}
+
+.tile span {
+    font-size: 45px;
+}
+
+.tile strong {
+    color: #ffe2f7;
+    font-size: 13px;
+}
+
+/* =========================
+   VIRTUAL ROOM
+========================= */
+
+.room {
+    max-width: 720px;
+    min-height: 330px;
+
+    margin: 30px auto;
+    padding: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    border: 2px solid #ffffff40;
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(119,75,151,0.65),
+        rgba(38,20,60,0.85)
+    );
+}
+
+.room-item {
+    min-height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ffffff30;
+    border-radius: 20px;
+
+    background: #ffffff15;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.room-item:hover {
+    transform: scale(1.06);
+    background: #ffffff25;
+}
+
+.room-item span {
+    font-size: 48px;
+}
+
+.room-item small {
+    margin-top: 8px;
+    color: #ffe2f7;
+}
+
+/* =========================
+   LOVE LETTER
+========================= */
+
+.letter {
+    display: inline-block;
+    margin: 30px;
+    font-size: 95px;
+
+    cursor: pointer;
+
+    filter: drop-shadow(0 0 20px #ffaddd);
+
+    transition: 0.4s;
+}
+
+.letter:hover {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+.hidden-content {
+    display: none;
+}
+
+.hidden-content.show {
+    display: block;
+    animation: appear 0.8s ease;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 680px;
+}
+
+.memory-card {
+    cursor: pointer;
+    min-width: 0;
+    transition: 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateY(-7px);
+}
+
+.photo {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+
+    border-radius: 20px;
+    border: 2px solid #ffffff50;
+
+    background: linear-gradient(
+        135deg,
+        #a879c8,
+        #f0b5dc
+    );
+
+    box-shadow: 0 0 20px #ed9cda45;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: 0.5s;
+}
+
+.memory-card:hover .photo img {
+    transform: scale(1.07);
+}
+
+.photo-label {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #ffe2f7;
+}
+
+.photo-sound {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #ffd5f0;
+}
+
+/* =========================
+   SECRET GIFTS
+========================= */
+
+.gift-grid {
+    max-width: 650px;
+    margin: 35px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gift {
+    width: 100%;
+    padding: 25px 10px;
+
+    font-size: 65px;
+
+    background: linear-gradient(
+        135deg,
+        #e9a8da,
+        #9875d0
+    );
+
+    border: 1px solid #ffffff60;
+    border-radius: 22px;
+
+    transition: 0.3s;
+}
+
+.gift:hover {
+    transform: translateY(-8px) rotate(4deg);
+}
+
+/* =========================
+   PROPOSAL
+========================= */
+
+.proposal-card {
+    max-width: 700px;
+    padding: 35px 25px;
+
+    border: 1px solid #ffb9e7;
+
+    box-shadow: 0 0 35px #eaa8ff45;
+}
+
+.proposal-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.proposal-buttons button {
+    min-width: 170px;
+}
+
+.second-yes {
+    background: linear-gradient(
+        120deg,
+        #d9b5ff,
+        #ffb9e7
+    );
+}
+
+/* =========================
+   FINAL CELEBRATION
+========================= */
+
+.final-heart {
+    font-size: 105px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.popup {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 50;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(10,5,20,0.85);
+    backdrop-filter: blur(8px);
+}
+
+.popup .card {
+    max-width: 420px;
+    margin: auto;
+    animation: appear 0.4s ease;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 50px;
+    font-size: 12px;
+    color: #e3c9f0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 600px) {
+
+    .screen {
+        padding: 35px 14px 70px;
+    }
+
+    .topbar {
+        gap: 6px;
+    }
+
+    .topbar button {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .room {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        padding: 22px 17px;
+    }
+
+    .proposal-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .proposal-buttons button {
+        width: 100%;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+}
+
+@media(max-width: 350px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<div class="stars" id="stars"></div>
+
+
+<!-- NAVIGATION -->
+
+<nav class="topbar" id="navbar">
+
+    <button onclick="showPage('home')">🏠 Home</button>
+
+    <button onclick="showPage('universe')">🌌 Universe</button>
+
+    <button onclick="showPage('room')">🧸 Room</button>
+
+    <button onclick="showPage('letter')">💌 Letter</button>
+
+    <button onclick="showPage('gallery')">📸 Her Photos</button>
+
+    <button onclick="showPage('gifts')">🎁 Gifts</button>
+
+    <button onclick="showPage('ending')">💍 Proposal</button>
+
+</nav>
+
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<section class="screen active" id="welcome">
+
+    <div class="planet">🌙</div>
+
+    <h1>Hey, Adiba! 💜</h1>
+
+    <p class="subtitle">
+
+        Someone has created a little universe for you.
+
+        A place filled with stars, happiness,
+        little surprises and love.
+
+    </p>
+
+    <p>Are you ready to enter your own little world?</p>
+
+    <br><br>
+
+    <button class="main-btn" onclick="enterUniverse()">
+
+        Enter My Universe ✨
+
+    </button>
+
+    <footer>
+        Made with a little magic and lots of love 💜
+    </footer>
+
+</section>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section class="screen" id="home">
+
+    <div class="planet">💗</div>
+
+    <h1>Welcome, Adiba</h1>
+
+    <p class="subtitle">
+
+        You are not just visiting a website.
+
+        You are entering a world made especially for you.
+
+    </p>
+
+    <div class="card">
+
+        <h2>A Little Reminder</h2>
+
+        <p>
+
+            You make ordinary moments feel special.
+
+            Your smile makes difficult days softer.
+
+            And I hope this little universe makes you smile today. 🥹
+
+        </p>
+
+    </div>
+
+    <button class="main-btn" onclick="showPage('universe')">
+
+        Explore Our Universe 🌌
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     UNIVERSE
+========================= -->
+
+<section class="screen" id="universe">
+
+    <h2>Our Little Universe 🌌</h2>
+
+    <p>Every little star holds a little piece of love.</p>
+
+    <div class="grid">
+
+        <div class="tile"
+        onclick="reveal('You are my favorite person in this universe. 💜')">
+
+            <span>⭐</span>
+            <strong>Favorite Star</strong>
+
+        </div>
+
+        <div class="tile"
+        onclick="reveal('If I could choose again, I would still choose to know you. 🌸')">
+
+            <span>🌙</span>
+            <strong>Our Moon</strong>
+
+        </div>
+
+        <div class="tile"
+        onclick="reveal('Your smile is one of my favorite views. 🥹')">
+
+            <span>💗</span>
+            <strong>Little Heart</strong>
+
+        </div>
+
+        <div class="tile"
+        onclick="reveal('No matter how busy life gets, you deserve little moments of happiness. ✨')">
+
+            <span>✨</span>
+            <strong>Magic Dust</strong>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <p>
+            Tap any magical object above to discover a message. 💌
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VIRTUAL ROOM
+========================= -->
+
+<section class="screen" id="room">
+
+    <h2>Adiba's Cozy Room 🧸</h2>
+
+    <p>A little room with little surprises. Tap everything!</p>
+
+    <div class="room">
+
+        <div class="room-item"
+        onclick="reveal('This teddy is giving you the biggest virtual hug! 🧸')">
+
+            <span>🧸</span>
+            <small>Teddy</small>
+
+        </div>
+
+        <div class="room-item"
+        onclick="reveal('A flower for someone who deserves beautiful things. 🌷')">
+
+            <span>🌷</span>
+            <small>Flowers</small>
+
+        </div>
+
+        <div class="room-item"
+        onclick="reveal('You are the sunshine of this little universe. ☀️')">
+
+            <span>☀️</span>
+            <small>Sunshine</small>
+
+        </div>
+
+        <div class="room-item"
+        onclick="reveal('Sending you one hundred imaginary kisses! 😘')">
+
+            <span>💋</span>
+            <small>Kisses</small>
+
+        </div>
+
+        <div class="room-item"
+        onclick="reveal('Never forget how precious and special you are. 💜')">
+
+            <span>🎀</span>
+            <small>Ribbon</small>
+
+        </div>
+
+        <div class="room-item"
+        onclick="reveal('Close your eyes and imagine the biggest hug. 🤗')">
+
+            <span>🤗</span>
+            <small>Big Hug</small>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <p>Choose something in your room! 💗</p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LOVE LETTER
+========================= -->
+
+<section class="screen" id="letter">
+
+    <h2>A Letter For You 💌</h2>
+
+    <p>There is something I want you to read.</p>
+
+    <div class="letter" onclick="openLetter()">
+        💌
+    </div>
+
+    <p>Tap the envelope to open it.</p>
+
+    <div class="card hidden-content" id="love-letter">
+
+        <h2>💌 **To My Dearest Adiba, My Cutie Pie!** 🥺💗</h2>
+
+        <p>
+
+            I don't know how to explain everything in words,
+            but I wanted to create something that belongs only to you.
+
+            <br><br>
+
+            I hope you always remember that you deserve kindness,
+            happiness, respect and all the beautiful things in life.
+
+            <br><br>
+
+
+Hiiiiii, my pretty girl! 🌷🧸
+
+First of all, I want you to know something. I know our introduction is very recent, and we haven't known each other for a very long time. Maybe someone would say that it's too early to develop such strong feelings for someone. But honestly? Sometimes, it doesn't take years to feel something special. Sometimes, one person comes into your life and makes even a short time feel incredibly beautiful. And for me, that person is YOU. 🥹💕
+
+I don't know exactly when it happened, but somewhere between our little conversations, your smile, your cuteness, and the moments we shared, I started developing feelings for you. And now, I find myself smiling whenever I think about you. I wait for your messages, I love talking to you, and somehow, even an ordinary day feels a little more special because you're a part of it. 💗
+
+Adiba, I know I'm not someone who has been in your life for years. I know we still have so many things to discover about each other. But I genuinely want to know every little thing about you. Your favourite things, your dreams, your silly habits, your mood swings, your happiest moments, and even the little things that make you upset.
+
+I don't want to promise you a perfect fairytale because nobody is perfect. But I want to promise you something more meaningful: I'll try my best to make you smile, respect your feelings, understand you, support your dreams, and make you feel loved and appreciated.
+
+I don't just want to be someone who talks to you when everything is going well. I want to be someone you can share your happiest moments with and someone you can count on during your difficult days too.
+
+And honestly, Adiba, I really need you in my life. Not because I can't live without you, but because I genuinely want to experience life's beautiful little moments WITH YOU. I want more conversations, more laughter, more memories, more silly arguments, more cute moments, and hopefully a beautiful future together. 🥺💞
+
+Maybe our story has just started, but I really hope it's a story that we get to write together.
+
+So, my pretty Adiba, I have one very special question for you...
+
+🌸 **WILL YOU BE MINE?** 🌸
+
+Will you let me be your special person? The one who makes you smile randomly, annoys you with unlimited cuteness, sends you stupid jokes, cares about you, and reminds you every day how special you are?
+
+I know this question might be a little unexpected, but these feelings are real, and I wanted you to know them. I hope you'll give us a chance to turn this little beginning into something beautiful.
+
+**I don't know how long our journey will be, but I know one thing: I would really love to walk through it with you.** 💗
+
+So pleaseeee, Adiba, make this little boy's heart happy and say YESSSSS! 😭🎀
+
+
+
+            <br><br>
+
+           **LOTS AND LOTS OF LOVE,**
+Your biggest admirer,
+Your future favourite person (hopefully 🤭💗)
+
+        </p>
+
+        <h2 class="script">Your Favorite Person</h2>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ADIBA PHOTO GALLERY
+========================= -->
+
+<section class="screen" id="gallery">
+
+    <h2>Adiba's Little Gallery 💗</h2>
+
+    <p>
+        A little collection of someone who makes
+        this universe more beautiful.
+    </p>
+
+    <p style="margin-top:10px;font-size:13px;color:#ffd4f0">
+
+        Touch each picture for a little surprise. 🎵
+
+    </p>
+
+    <div class="grid photo-gallery">
+
+        <!-- PHOTO 1 -->
+
+        <div class="memory-card" onclick="playPhotoSound(0)">
+
+            <div class="photo">
+
+                <img src="p1.jpeg"
+                alt="Adiba photo 1">
+                <audio id="photoAudio1" src="song/song4.aac" preload="auto"></audio>
+
+            </div>
+
+            <div class="photo-label">
+                My Cutie Pie 🥹
+            </div>
+
+            <span class="photo-sound" id="sound-status-0">
+                💗 Touch me
+            </span>
+
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div class="memory-card" onclick="playPhotoSound(1)">
+
+            <div class="photo">
+
+                <img src="p2.jpeg"
+                alt="Adiba photo 2">
+                <audio id="photoAudio2" src="song/song2.aac" preload="auto"></audio>
+
+            </div>
+
+            <div class="photo-label">
+                Pretty Girl 🌸
+            </div>
+
+            <span class="photo-sound" id="sound-status-1">
+                💗 Touch me
+            </span>
+
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div class="memory-card" onclick="playPhotoSound(2)">
+
+            <div class="photo">
+
+                <img src="p3.jpeg"
+                alt="Adiba photo 3">
+                <audio id="photoAudio3" src="song/song3.aac" preload="auto"></audio>
+
+            </div>
+
+            <div class="photo-label">
+                My Favorite Smile ✨
+            </div>
+
+            <span class="photo-sound" id="sound-status-2">
+                💗 Touch me
+            </span>
+
+        </div>
+
+
+        <!-- PHOTO 4 -->
+
+        <div class="memory-card" onclick="playPhotoSound(3)">
+
+            <div class="photo">
+
+                <img src="p4.jpeg"
+                alt="Adiba photo 4">
+                <audio id="photoAudio4" src="song/song1.aac" preload="auto"></audio>
+
+            </div>
+
+            <div class="photo-label">
+                My Beautiful Girl 💜
+            </div>
+
+            <span class="photo-sound" id="sound-status-3">
+                💗 Touch me
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>One Little Secret 💌</h2>
+
+        <p>
+
+            I could look at these pictures a thousand times
+            and still smile every single time.
+
+        </p>
+
+    </div>
+
+
+    <!-- INDIVIDUAL PHOTO SOUNDS -->
+
+    <audio id="photoAudio1" src="sounds/sound1.mp3" preload="auto"></audio>
+
+    <audio id="photoAudio2" src="sounds/sound2.mp3" preload="auto"></audio>
+
+    <audio id="photoAudio3" src="sounds/sound3.mp3" preload="auto"></audio>
+
+    <audio id="photoAudio4" src="sounds/sound4.mp3" preload="auto"></audio>
+
+</section>
+
+
+<!-- =========================
+     SECRET GIFTS
+========================= -->
+
+<section class="screen" id="gifts">
+
+    <h2>Three Little Gifts 🎁</h2>
+
+    <p>
+        There are surprises waiting for you.
+        Open them one by one!
+    </p>
+
+    <div class="gift-grid">
+
+        <button class="gift" onclick="openGift(0)">
+            🎁
+        </button>
+
+        <button class="gift" onclick="openGift(1)">
+            🎀
+        </button>
+
+        <button class="gift" onclick="openGift(2)">
+            💝
+        </button>
+
+    </div>
+
+    <div class="card" id="gift-message">
+
+        <p>Pick a gift, Adiba! 🥹</p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL PROPOSAL
+========================= -->
+
+<section class="screen" id="ending">
+
+    <div class="final-heart">💗</div>
+
+    <h1>Adiba, My Love...</h1>
+
+    <p class="subtitle">
+
+        Before you leave this little universe,
+        I have one very special question for you.
+
+    </p>
+
+    <div class="card proposal-card">
+
+        <div style="font-size:65px">
+            💐
+        </div>
+
+        <h2>My Dear Adiba,</h2>
+
+        <p>
+
+            I created this little universe for you,
+            but honestly, no universe could ever be
+            as beautiful as the happiness you bring.
+
+            <br><br>
+
+            I don't need a perfect world.
+
+            I just want a world filled with laughter,
+            little adventures, silly conversations,
+            unexpected surprises and beautiful moments.
+
+            <br><br>
+
+            I want to keep making you smile,
+            supporting your dreams and creating
+            countless beautiful moments together.
+
+            <br><br>
+
+            So, my beautiful girl...
+
+        </p>
+
+        <br>
+
+        <h1 style="font-size:clamp(38px,7vw,65px)">
+            Will You Be Mine? 💍
+        </h1>
+
+        <p style="margin-top:15px">
+
+            And let me make a million more beautiful
+            moments with you? 🥹
+
+        </p>
+
+        <br>
+
+        <div class="proposal-buttons">
+
+            <button class="main-btn"
+            onclick="answerProposal()">
+
+                YES! 💗
+
+            </button>
+
+            <button class="main-btn second-yes"
+            onclick="answerProposal()">
+
+                OBVIOUSLY YES!! 💜
+
+            </button>
+
+        </div>
+
+        <p style="font-size:12px;margin-top:20px">
+
+            Choose your answer, my princess. 🎀
+
+        </p>
+
+    </div>
+
+    <footer>
+        Forever a little universe made for Adiba. 💜
+    </footer>
+
+</section>
+
+
+<!-- =========================
+     HAPPY ENDING
+========================= -->
+
+<section class="screen" id="accepted">
+
+    <div class="final-heart">💖</div>
+
+    <h1>YOU SAID YES!!</h1>
+
+    <div class="card">
+
+        <h2>My Happiest Moment! 🥹</h2>
+
+        <p>
+
+            I wish I could show you how big my smile
+            is right now.
+
+            <br><br>
+
+            Thank you for making this moment
+            so incredibly special.
+
+            <br><br>
+
+            Here's to more laughter, more hugs,
+            more adventures and a million
+            beautiful moments together.
+
+            <br><br>
+
+            You are my favorite part of this universe. 💜
+
+        </p>
+
+        <br>
+
+        <div style="font-size:65px">
+            🧸💗🌷💍
+        </div>
+
+        <h2>Love You, Adiba!</h2>
+
+        <p>From your favorite person. 💜</p>
+
+    </div>
+
+    <button class="main-btn" onclick="celebrate()">
+
+        Celebrate Our Happiness 🎉
+
+    </button>
+
+</section>
+
+
+<!-- =========================
+     MESSAGE POPUP
+========================= -->
+
+<div class="popup" id="popup">
+
+    <div class="card">
+
+        <div style="font-size:55px">
+            💗
+        </div>
+
+        <p id="popup-text" style="margin:20px 0">
+        </p>
+
+        <button class="main-btn" onclick="closePopup()">
+            Awww 💜
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   CREATE STARS
+========================= */
+
+const starBox = document.getElementById('stars');
+
+for (let i = 0; i < 110; i++) {
+
+    const star = document.createElement('div');
+
+    star.className = 'star';
+
+    star.style.left = Math.random() * 100 + '%';
+
+    star.style.top = Math.random() * 100 + '%';
+
+    star.style.width = (Math.random() * 3 + 1) + 'px';
+
+    star.style.height = star.style.width;
+
+    star.style.animationDelay = Math.random() * 4 + 's';
+
+    starBox.appendChild(star);
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function enterUniverse() {
+
+    document.getElementById('navbar').style.display = 'flex';
+
+    showPage('home');
+
+    createHearts(15);
+
+}
+
+
+function showPage(page) {
+
+    // Stop photo audio when changing pages
+
+    stopPhotoAudio();
+
+    // Hide all pages
+
+    const pages = document.querySelectorAll('.screen');
+
+    pages.forEach(screen => {
+
+        screen.classList.remove('active');
+
+    });
+
+    // Display selected page
+
+    document.getElementById(page).classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts(amount = 1) {
+
+    const emojis = [
+        '💗',
+        '💜',
+        '💕',
+        '✨',
+        '🌸'
+    ];
+
+    for (let i = 0; i < amount; i++) {
+
+        const heart = document.createElement('div');
+
+        heart.className = 'heart';
+
+        heart.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + '%';
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + 'px';
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + 's';
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6500);
+
+    }
+
+}
+
+
+// Automatic floating hearts
+
+setInterval(() => {
+
+    createHearts(1);
+
+}, 1800);
+
+
+/* =========================
+   POPUP MESSAGES
+========================= */
+
+function reveal(message) {
+
+    document.getElementById('popup-text').textContent = message;
+
+    document.getElementById('popup').style.display = 'flex';
+
+    createHearts(8);
+
+}
+
+
+function closePopup() {
+
+    document.getElementById('popup').style.display = 'none';
+
+}
+
+
+// Close popup by clicking outside
+
+document.getElementById('popup').addEventListener('click', function(event) {
+
+    if (event.target === this) {
+
+        closePopup();
+
+    }
+
+});
+
+
+// Close popup with Escape
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+
+        closePopup();
+
+    }
+
+});
+
+
+/* =========================
+   LOVE LETTER
+========================= */
+
+function openLetter() {
+
+    const letter = document.getElementById('love-letter');
+
+    letter.classList.toggle('show');
+
+    createHearts(15);
+
+}
+
+
+/* =========================
+   PHOTO SOUND PLAYER
+========================= */
+
+const photoAudios = [
+
+    document.getElementById('photoAudio1'),
+
+    document.getElementById('photoAudio2'),
+
+    document.getElementById('photoAudio3'),
+
+    document.getElementById('photoAudio4')
+
+];
+
+let currentPhotoIndex = -1;
+
+
+function stopPhotoAudio() {
+
+    photoAudios.forEach(audio => {
+
+        audio.pause();
+
+        audio.currentTime = 0;
+
+    });
+
+    for (let i = 0; i < 4; i++) {
+
+        document.getElementById('sound-status-' + i).textContent =
+            '💗 Touch me';
+
+    }
+
+    currentPhotoIndex = -1;
+
+}
+
+
+function playPhotoSound(index) {
+
+    // Stop the previously playing audio
+
+    stopPhotoAudio();
+
+    const selectedAudio = photoAudios[index];
+
+    currentPhotoIndex = index;
+
+    document.getElementById('sound-status-' + index).textContent =
+        '🎵 Playing...';
+
+    selectedAudio.currentTime = 0;
+
+    selectedAudio.play().catch(error => {
+
+        document.getElementById('sound-status-' + index).textContent =
+            '⚠️ Check audio file';
+
+        console.log('Audio could not play:', error);
+
+    });
+
+    selectedAudio.onended = function() {
+
+        if (currentPhotoIndex === index) {
+
+            document.getElementById('sound-status-' + index).textContent =
+                '💗 Touch me';
+
+            currentPhotoIndex = -1;
+
+        }
+
+    };
+
+}
+
+
+/* =========================
+   SECRET GIFTS
+========================= */
+
+const gifts = [
+
+    '🎀 Gift number one: A lifetime supply of hugs, whenever you need them! 🤗',
+
+    '🌷 Gift number two: A garden full of flowers, because you deserve beautiful things every day.',
+
+    '💝 Gift number three: My wish that you always find happiness, peace and love.'
+
+];
+
+const openedGifts = new Set();
+
+
+function openGift(index) {
+
+    if (openedGifts.has(index)) {
+
+        reveal(
+            'You already opened this gift! But you deserve unlimited surprises. 💗'
+        );
+
+        return;
+
+    }
+
+    openedGifts.add(index);
+
+    document.querySelectorAll('.gift')[index].textContent = '💖';
+
+    document.getElementById('gift-message').innerHTML =
+
+        '<h2>Surprise! 🎉</h2><p>' + gifts[index] + '</p>';
+
+    createHearts(20);
+
+    if (openedGifts.size === 3) {
+
+        setTimeout(() => {
+
+            reveal(
+                'You opened all three gifts! You deserve a million more. 💜'
+            );
+
+        }, 700);
+
+    }
+
+}
+
+
+/* =========================
+   PROPOSAL ANSWER
+========================= */
+
+function answerProposal() {
+
+    stopPhotoAudio();
+
+    showPage('accepted');
+
+    createHearts(60);
+
+    setTimeout(() => {
+
+        createHearts(40);
+
+    }, 1200);
+
+}
+
+
+/* =========================
+   FINAL CELEBRATION
+========================= */
+
+function celebrate() {
+
+    createHearts(60);
+
+    reveal(
+        'Sending you an infinite amount of love, hugs and happiness, Adiba! 💜🥹'
+    );
+
+}
+
+</script>
+
+</body>
+</html>
